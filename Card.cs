@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace TwentyOne
 {
-    public class Cards
+    public class Card
     {
-        public Cards() { 
+        public Card() { 
         
                 Face = "King";
                 Suit = "Black Hearts";
