@@ -21,12 +21,12 @@ namespace TwentyOne
 
             Card card1 = new Card();
             card1.Suit = Suit.Clubs;
-            int underlyingValue = (int)card1.Suit;
+            int underlyingValue = Convert.ToInt32(Suit.Spades);
             Console.WriteLine(underlyingValue);
 
             Deck deck = new Deck();            
              //Shuffle the deck 3 times
-            deck.Shuffle(18);
+            deck.Shuffle(3);
 
             // Display the shuffled deck
             foreach (Card card in deck.Cards)
