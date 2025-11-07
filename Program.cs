@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+//using TwentyOne;
 
 namespace TwentyOne
 {
@@ -7,24 +8,29 @@ namespace TwentyOne
     {
         static void Main(string[] args)
         {
-            Deck deck = new Deck();
 
-            
-            // Shuffle the deck 3 times
-            deck.Shuffle();
 
-            // Display the shuffled deck
-            foreach (Card card in deck.Cards)
-            {
-                Console.WriteLine($"{card.Face} of {card.Suit}");
-            }
+            Games game = new TwentyOneGame();
 
-            // Display the total count and shuffle info
-            Console.WriteLine($"\nTotal cards in deck: {deck.Cards.Count}");
-           
+            //TwentyOneGame game = new TwentyOneGame();
+            //game.Players = new List<string>() { "Jeff", "Joe", "Jane" };
+            //game.ListPlayers();
+            //Console.ReadLine();
 
-            Console.ReadLine();
+            //Deck deck = new Deck();            
+            //// Shuffle the deck 3 times
+            //deck.Shuffle(18);
+
+            //// Display the shuffled deck
+            //foreach (Card card in deck.Cards)
+            //{
+            //    Console.WriteLine($"{card.Face} of {card.Suit}");
+            //}
+
+            //// Display the total count and shuffle info
+            //Console.WriteLine(deck.Cards.Count);       
+            //Console.ReadLine();
         }
-    }
+    } 
 }
 
