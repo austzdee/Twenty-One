@@ -11,25 +11,26 @@ namespace TwentyOne
 
 
             Games game = new TwentyOneGame();
+            game.Players = new List<Player>();
+            Player player = new Player();
+            player.Name = "John";
+            game += player; // Using overloaded + operator to add player to game
 
-            //TwentyOneGame game = new TwentyOneGame();
-            //game.Players = new List<string>() { "Jeff", "Joe", "Jane" };
-            //game.ListPlayers();
-            //Console.ReadLine();
+            game -= player;// Using overload - operator to remove player from game
 
-            //Deck deck = new Deck();            
-            //// Shuffle the deck 3 times
-            //deck.Shuffle(18);
+            Deck deck = new Deck();            
+             //Shuffle the deck 3 times
+            deck.Shuffle(18);
 
-            //// Display the shuffled deck
-            //foreach (Card card in deck.Cards)
-            //{
-            //    Console.WriteLine($"{card.Face} of {card.Suit}");
-            //}
+            // Display the shuffled deck
+            foreach (Card card in deck.Cards)
+            {
+                Console.WriteLine($"{card.Face} of {card.Suit}");
+            }
 
-            //// Display the total count and shuffle info
-            //Console.WriteLine(deck.Cards.Count);       
-            //Console.ReadLine();
+            // Display the total count and shuffle info
+            Console.WriteLine(deck.Cards.Count);       
+            Console.ReadLine();
         }
     } 
 }

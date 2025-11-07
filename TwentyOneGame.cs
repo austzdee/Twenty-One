@@ -15,7 +15,7 @@ namespace TwentyOne
         public override void ListPlayers()
         {
             // Custom implementation for listing players in TwentyOne game
-            foreach (string player in Players)
+            foreach (Player player in Players)
             {
                 Console.WriteLine($"Player: {player}");
             }
