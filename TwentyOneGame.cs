@@ -24,7 +24,7 @@ namespace TwentyOne
         public void WalkAway(Player player)
         {
             Console.WriteLine($"{player.Name} has chosen to walk away from the game.");
-            // Additional logic for handling the player walking away can be added here
+            //Additional logic for handling the player walking away can be added here
         }
     }
 }

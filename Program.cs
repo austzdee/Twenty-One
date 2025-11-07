@@ -10,13 +10,19 @@ namespace TwentyOne
         {
 
 
-            Games game = new TwentyOneGame();
-            game.Players = new List<Player>();
-            Player player = new Player();
-            player.Name = "John";
-            game += player; // Using overloaded + operator to add player to game
+            //Games game = new TwentyOneGame();
+            //game.Players = new List<Player>();
+            //Player player = new Player();
+            //player.Name = "John";
+            //game += player; // Using overloaded + operator to add player to game
 
-            game -= player;// Using overload - operator to remove player from game
+            //game -= player;// Using overload - operator to remove player from game
+
+
+            Card card1 = new Card();
+            card1.Suit = Suit.Clubs;
+            int underlyingValue = (int)card1.Suit;
+            Console.WriteLine(underlyingValue);
 
             Deck deck = new Deck();            
              //Shuffle the deck 3 times

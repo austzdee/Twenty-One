@@ -17,7 +17,7 @@ namespace TwentyOne
                 {
                     Card card = new Card();
                     card.Face = face;
-                    card.Suit = suit;
+                    card.Suit = Suit.Diamonds;
                     Cards.Add(card);
                 }
             }
