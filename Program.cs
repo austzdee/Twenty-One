@@ -9,10 +9,10 @@ namespace TwentyOne
         static void Main(string[] args)
         {
 
-
-            Number number = new Number();
-            number.Amount = 7.5m;
-            Console.WriteLine(number.Amount);
+            // Demonstrating the Number struct with decimal property
+            //Number number = new Number();
+            //number.Amount = 7.5m;
+            //Console.WriteLine(number.Amount);
 
             //Games game = new TwentyOneGame();
             //game.Players = new List<Player>();
@@ -28,9 +28,21 @@ namespace TwentyOne
             //int underlyingValue = Convert.ToInt32(Suit.Spades);
             //Console.WriteLine(underlyingValue);
 
-            //Deck deck = new Deck();            
-            // //Shuffle the deck 3 times
-            //deck.Shuffle(3);
+            Deck deck = new Deck();
+
+            //int count = deck.Cards.Count(x=> x.Face == Face.Ace);
+            ////Shuffle the deck 3 times
+            ////deck.Shuffle(3);
+            //Console.WriteLine(count);
+
+            List<Card> newList = deck.Cards.Where(x => x.Face == Face.King).ToList();
+
+            foreach (Card card in newList)
+            {
+                Console.WriteLine($"{card.Face}");
+            }
+
+
 
             //// Display the shuffled deck
             //foreach (Card card in deck.Cards)

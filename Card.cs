@@ -11,9 +11,15 @@ namespace TwentyOne
         
         public Face Face { get; set; }
         public Suit Suit { get; set; }
-        
+
+        public override string ToString()
+        {
+            return $"{Face} of {Suit}";
+        }
+
+
     }
-         public enum Suit
+    public enum Suit
          {
              Clubs,
              Hearts,
@@ -36,7 +42,8 @@ namespace TwentyOne
              Queen = 12,
              King = 13,
              Ace = 14
-    }
+          }
+
 
 }
     

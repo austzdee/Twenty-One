@@ -23,7 +23,7 @@ namespace TwentyOne
         // List of all cards in the deck
         public List<Card> Cards { get; set; }
 
-        public void Shuffle(int times = 3)
+        public void Shuffle(int times = 1)
         {
             Random random = new Random();
 
