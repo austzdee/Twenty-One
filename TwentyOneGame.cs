@@ -6,25 +6,46 @@ using System.Threading.Tasks;
 
 namespace TwentyOne
 {
-     public class TwentyOneGame : Games, IWalkAway
+     public class TwentyOneGame : Game, IWalkAway
     {
+        public TwentyOneDealer Dealer { get; set; }
         public override void Play()
         {
             // Implementation of the game logic goes here
+            Dealer = new TwentyOneDealer();
+            foreach (Player player in Players)
+            {
+                player.Hand = new List<Card>();
+                player.Stay = false;
+                
+            }
+            Dealer.Hand = new List<Card>();
+            Dealer.Stay = false;
+            Dealer.Deck = new Deck();
+            Console.WriteLine("Place your bet!");
+
+            foreach (Player player in Players)
+            {
+                int bet = Convert.ToInt32(Console.ReadLine());
+                bool successfullyBet = player.Bet(bet);
+                if (!successfullyBet)
+                {
+                    return;
+                }
+                Bets[player] = bet;
+            }
+
         }
         public override void ListPlayers()
         {
             // Custom implementation for listing players in TwentyOne game
-            foreach (Player player in Players)
-            {
-                Console.WriteLine($"Player: {player}");
-            }
+            Console.WriteLine("Players in the TwentyOne game:");
+            base.ListPlayers();
         }
 
         public void WalkAway(Player player)
         {
-            Console.WriteLine($"{player.Name} has chosen to walk away from the game.");
-            //Additional logic for handling the player walking away can be added here
+            throw new NotImplementedException();
         }
     }
 }
