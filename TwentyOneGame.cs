@@ -34,6 +34,26 @@ namespace TwentyOne
                 }
                 Bets[player] = bet;
             }
+            for (int i = 0; i< 2; i++)
+            {
+                Console.WriteLine("Dealing...");
+                foreach (Player player in Players)
+                {
+                    Console.Write("{0}: ", player.Name);
+                    Dealer.Deal(player.Hand);
+                    Console.WriteLine(player.Hand[1].ToString());
+                }
+                Console.Write("Dealer: ");
+                Dealer.Deal(Dealer.Hand);
+                if (i == 1)
+                {
+                    Console.WriteLine(Dealer.Hand[1].ToString());
+                }
+                else
+                {
+                    Console.WriteLine("Hidden Card");
+                }
+            }
 
         }
         public override void ListPlayers()
