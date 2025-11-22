@@ -24,23 +24,67 @@ namespace TwentyOne
             [Face.King] = 10,
             [Face.Ace] = 1
         };
-        public static int GetAllPossibleHandValues(List<Card> hand)
+
+        private static int[] GetAllPossibleHandValues(List<Card> hand)
         {
-            int aceCount = hand.Count(card => card.Face == Face.Ace);
-            int minValue = hand.Sum(card => cardValues[card.Face]);
-            int[] possibleValues = new int[aceCount + 1];
-            possibleValues[0] = minValue;
-            for (int i = 1; i <= aceCount; i++)
+            int aceCount = hand.Count(x => x.Face == Face.Ace);
+            int[] result = new int[aceCount + 1];
+            int value = hand.Sum(x => cardValues[x.Face]);
+            result[0] = value;
+            if (result.Length == 1)
             {
-                minValue += 10;
-                possibleValues[i] = minValue;
+                return result;
             }
-            return possibleValues.Where(value => value <= 21).DefaultIfEmpty(possibleValues.Min()).Max();
+
+            for (int i = 1; i < result.Length; i++)
+            {
+                value += 10;
+                result[i] = value;
+            }
+
+            return result;
         }
 
         public static bool CheckForBlackjack(List<Card> hand)
         {
-            return hand.Count == 2 && hand.Sum(card => cardValues[card.Face]) == 21;
+            int[] possibleValues = GetAllPossibleHandValues(hand);
+            int value = possibleValues.Max();
+            if (value == 21) return true;
+            else return false;
+        }
+        public static bool IsBusted(List<Card> hand)
+        {
+            int values = GetAllPossibleHandValues(hand).Min();
+            if (values > 21) return true;
+            else return false;
+
+        }
+
+        public static bool ShouldDealerStay(List<Card> hand)
+        {
+            int[] possibleHandValues = GetAllPossibleHandValues(hand);
+            foreach (int value in possibleHandValues)
+            {
+                if (value > 16 && value < 22)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        public static bool? CompareHands(List<Card> playerHand, List<Card> dealerHand)
+        {
+            int[] playerResults = GetAllPossibleHandValues(playerHand);
+            int[] dealerResults = GetAllPossibleHandValues(dealerHand);
+
+            int playerScore = playerResults.Where(x => x < 22).Max();
+            int dealerScore = dealerResults.Where(x => x < 22).Max();
+
+            if (playerScore > dealerScore) return true;
+            else if (playerScore < dealerScore) return false;
+            else return null;
+
         }
     }
+
 }

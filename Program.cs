@@ -16,7 +16,7 @@ namespace TwentyOne
             Console.WriteLine($"You have placed a bet of {playerBet:C}.");
             Console.WriteLine($"Hello, {playerName}. would you like to play a game of 21 right now?");
             string answer = Console.ReadLine().ToLower();
-            if (answer == "yes" || answer == "y")
+            if (answer == "yes" || answer == "y"|| answer == "sure" || answer == "yeah")
             {
                 Player player = new Player(playerName, playerBet);
                 Game game = new TwentyOneGame();

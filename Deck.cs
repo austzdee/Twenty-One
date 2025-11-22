@@ -8,17 +8,18 @@ namespace TwentyOne
         public Deck()
         {
             Cards = new List<Card>(); // create empty deck
-            for(int i = 0;i< 13; i++) // loop through faces
+            foreach (Suit suit in Enum.GetValues(typeof(Suit)))
             {
-                for(int j = 0; j < 4; j++) // loop through suits
+                foreach (Face face in Enum.GetValues(typeof(Face)))
                 {
-                    Card card = new Card(); // create a new card
-                    card.Face = (Face)i; // assign face
-                    card.Suit = (Suit)j; // assign suit
-                    Cards.Add(card); // add the card to the deck
+                    Card card = new Card();
+                    card.Face = face;
+                    card.Suit = suit;
+                    Cards.Add(card);
                 }
             }
-        }
+
+          }
 
         // List of all cards in the deck
         public List<Card> Cards { get; set; }
